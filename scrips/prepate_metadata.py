@@ -38,7 +38,7 @@ def prepare_utterence_id(dataset_folder):
     wav_folder = os.path.join(base_path,data_folder,dataset_folder,recording_folder)
     root.info(wav_folder)
     files = glob(wav_folder+"/**.wav")
-
+    files = sorted(files)
     file_path = os.path.join(base_path, data_folder, dataset_folder, ut_id_to_wav_file)
     with open(file_path, 'w') as f:
         for wav_file in files:
