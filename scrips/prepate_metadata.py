@@ -22,7 +22,7 @@ recording_folder = "recordings"
 spk2gender_file = "spk2gender"
 ut_id_to_wav_file ="wav.scp"
 text_file = "text"
-ut2psk_file = "u2spk"
+ut2psk_file = "utt2spk"
 corpus_file = "corpus.txt"
 local_folder = "local"
 
