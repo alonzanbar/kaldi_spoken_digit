@@ -5,8 +5,8 @@
 1. git clone git@github.com:Jakobovski/free-spoken-digit-dataset.git to some folder outside the repo
 2. change :
     - modify : prepare_dataset.py
-        - base_path = "<source recording folder>"
-        - base_path_output = "<KALDI_BASE>/egs/digits/data"
+        - base_path = "\<free-spoken-digit-dataset\>/free-spoken-digit-dataset/recording"
+        - base_path_output = "\<KALDI_BASE\>/egs/digits/data"
     - run python prepare_dataset.py
     - review the files created in the <KALDI_BASE>/egs/digits/data/train/recording , 
     <KALDI_BASE>/egs/digits/data/test/recording
