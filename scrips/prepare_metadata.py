@@ -31,8 +31,9 @@ local_folder = "local"
 def prepare_gender(dataset_folder):
     file_path = os.path.join(base_path,data_folder,dataset_folder,spk2gender_file)
     with open(file_path,'w') as f:
-        for k,v in metadata.items():
-            f.write("{} {}\n".format(k,v['gender'][0]))
+        sorted_keys = sorted(metadata.keys())
+        for k in sorted_keys:
+            f.write("{} {}\n".format(k,metadata[k]['gender'][0]))
 
 def prepare_utterence_id(dataset_folder):
     wav_folder = os.path.join(base_path,data_folder,dataset_folder,recording_folder)
