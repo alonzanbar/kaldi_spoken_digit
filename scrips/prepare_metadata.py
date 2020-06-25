@@ -50,7 +50,7 @@ def prepare_text(dataset_folder):
     text_file_path = os.path.join(base_path, data_folder, dataset_folder, text_file)
     with open(text_file_path, 'w') as f:
         for id in ids:
-            sentence = " ".join([digit_text[int(d)] for d in  id.split("_")[:-2]])
+            sentence = " ".join([digit_text[int(d)] for d in  id.split("-")[1].split("_")])
             f.write("{} {}\n".format(id,sentence))
 
 
@@ -60,7 +60,7 @@ def ut2psk(dataset_folder):
     ut2psk_file_path = os.path.join(base_path, data_folder, dataset_folder, ut2psk_file)
     with open(ut2psk_file_path, 'w') as f:
         for id in ids:
-            speaker = id.split("_")[-2]
+            speaker = id.split("-")[0].split("_")[0]
             f.write("{} {}\n".format(id, speaker))
 def create_corpus(dataset_folder):
     text_file_path = os.path.join(base_path, data_folder, dataset_folder, text_file)

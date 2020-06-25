@@ -24,14 +24,14 @@ def create_sentences_from_digits(number_of_samples, length, dataset_folder):
     for i in range(number_of_samples):
         speaker = np.random.choice(df['speaker'].unique())
         to_sentence = df[df['speaker'] == speaker].sample(length)
-        file_name = "{}_{}".format("_".join(to_sentence['digit'].tolist()), speaker)
+        file_name = (speaker,"_".join(to_sentence['digit'].tolist()))
         if file_name in file_names:
             file_names[file_name] += 1
         else:
             file_names[file_name] = 1
         path = os.path.join(base_path_output, dataset_folder,'recordings')
         os.makedirs(path,exist_ok=True)
-        file_name_ex = "{}/{}_{}.wav".format(path, file_name, file_names[file_name])
+        file_name_ex = "{}/{}_{}-{}.wav".format(path,speaker,file_names[file_name],file_name[1])
         merged_audio = to_playlist(to_sentence['file_path'].tolist())
         with open(file_name_ex, 'wb') as out_f:
             merged_audio.export(out_f, format='wav')
